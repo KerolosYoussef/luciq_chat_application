@@ -1,0 +1,39 @@
+#!/bin/bash -e
+
+# If running the rails server then create or migrate existing database
+if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
+  ./bin/rails db:prepare
+  
+  # Wait for Elasticsearch to be ready and create indices
+  echo "Waiting for Elasticsearch..."
+  max_attempts=30
+  attempt=0
+  
+  until curl -s http://elasticsearch:9200/_cluster/health > /dev/null 2>&1 || [ $attempt -eq $max_attempts ]; do
+    attempt=$((attempt+1))
+    echo "Elasticsearch not ready yet (attempt $attempt/$max_attempts)..."
+    sleep 2
+  done
+  
+  if [ $attempt -eq $max_attempts ]; then
+    echo "Warning: Elasticsearch did not become ready in time"
+  else
+    echo "Elasticsearch is ready! Creating indices..."
+    ./bin/rails runner "
+      begin
+        unless Message.search_index.exists?
+          puts 'Creating Elasticsearch index for Message...'
+          Message.reindex
+          puts 'Elasticsearch index created successfully!'
+        else
+          puts 'Elasticsearch index already exists'
+        end
+      rescue => e
+        puts \"Error creating Elasticsearch index: \#{e.message}\"
+        puts e.backtrace.join(\"\n\")
+      end
+    "
+  fi
+fi
+
+exec "${@}"

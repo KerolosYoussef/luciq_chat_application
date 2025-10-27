@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "2a2fa42f-d6bb-451e-8678-1935bd0f582d",
+		"name": "Luciq Chat App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16506746"
+	},
+	"item": [
+		{
+			"name": "applications",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"application\": {\r\n    \"name\": \"My Chat App\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{chat_app_url}}/applications",
+							"host": [
+								"{{chat_app_url}}"
+							],
+							"path": [
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{chat_app_url}}/applications",
+							"host": [
+								"{{chat_app_url}}"
+							],
+							"path": [
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_by_token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{chat_app_url}}/applications/7e4a9351-e677-43ae-98fc-4a4e1a6ba581",
+							"host": [
+								"{{chat_app_url}}"
+							],
+							"path": [
+								"applications",
+								"7e4a9351-e677-43ae-98fc-4a4e1a6ba581"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"application\": {\r\n    \"name\": \"My Chat App\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{chat_app_url}}/applications/7e4a9351-e677-43ae-98fc-4a4e1a6ba581",
+							"host": [
+								"{{chat_app_url}}"
+							],
+							"path": [
+								"applications",
+								"7e4a9351-e677-43ae-98fc-4a4e1a6ba581"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chats",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{chat_app_url}}/applications/7e4a9351-e677-43ae-98fc-4a4e1a6ba581/chats",
+							"host": [
+								"{{chat_app_url}}"
+							],
+							"path": [
+								"applications",
+								"7e4a9351-e677-43ae-98fc-4a4e1a6ba581",
+								"chats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{chat_app_url}}/applications/7e4a9351-e677-43ae-98fc-4a4e1a6ba581/chats",
+							"host": [
+								"{{chat_app_url}}"
+							],
+							"path": [
+								"applications",
+								"7e4a9351-e677-43ae-98fc-4a4e1a6ba581",
+								"chats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_by_number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{chat_app_url}}/applications/7e4a9351-e677-43ae-98fc-4a4e1a6ba581/chats/1",
+							"host": [
+								"{{chat_app_url}}"
+							],
+							"path": [
+								"applications",
+								"7e4a9351-e677-43ae-98fc-4a4e1a6ba581",
+								"chats",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "messages",
+			"item": [
+				{
+					"name": "get_all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{chat_app_url}}/applications/7e4a9351-e677-43ae-98fc-4a4e1a6ba581/chats/2/messages",
+							"host": [
+								"{{chat_app_url}}"
+							],
+							"path": [
+								"applications",
+								"7e4a9351-e677-43ae-98fc-4a4e1a6ba581",
+								"chats",
+								"2",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"body\": \"Wrong message\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{chat_app_url}}/applications/7e4a9351-e677-43ae-98fc-4a4e1a6ba581/chats/2/messages",
+							"host": [
+								"{{chat_app_url}}"
+							],
+							"path": [
+								"applications",
+								"7e4a9351-e677-43ae-98fc-4a4e1a6ba581",
+								"chats",
+								"2",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{chat_app_url}}/applications/7e4a9351-e677-43ae-98fc-4a4e1a6ba581/chats/1/messages/search?q=test",
+							"host": [
+								"{{chat_app_url}}"
+							],
+							"path": [
+								"applications",
+								"7e4a9351-e677-43ae-98fc-4a4e1a6ba581",
+								"chats",
+								"1",
+								"messages",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_by_number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{chat_app_url}}/applications/7e4a9351-e677-43ae-98fc-4a4e1a6ba581/chats/2/messages/1",
+							"host": [
+								"{{chat_app_url}}"
+							],
+							"path": [
+								"applications",
+								"7e4a9351-e677-43ae-98fc-4a4e1a6ba581",
+								"chats",
+								"2",
+								"messages",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"body\": \"Updated message\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{chat_app_url}}/applications/7e4a9351-e677-43ae-98fc-4a4e1a6ba581/chats/1/messages/1",
+							"host": [
+								"{{chat_app_url}}"
+							],
+							"path": [
+								"applications",
+								"7e4a9351-e677-43ae-98fc-4a4e1a6ba581",
+								"chats",
+								"1",
+								"messages",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
