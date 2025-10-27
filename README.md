@@ -76,7 +76,7 @@ A complete Postman collection is available for testing all API endpoints.
 
 **📥 Import Collection:**
 
-1. Download the collection file: [Luciq-Chat-System.postman_collection.json](./postman/Luciq-Chat-System.postman_collection.json)
+1. Download the collection file: [Luciq-Chat-System.postman_collection.json](./.postman/Luciq-Chat-System.postman_collection.json)
 2. Open Postman
 3. Click **Import** button (top left)
 4. Drag and drop the file or click **Upload Files**
@@ -93,7 +93,7 @@ A complete Postman collection is available for testing all API endpoints.
 **🔧 Environment Setup:**
 
 After importing, create a new environment in Postman with:
-- `base_url`: `http://localhost:3000`
+- `chat_app_url`: `http://localhost:3000`
 - `application_token`: (auto-populated after creating an application)
 - `chat_number`: (auto-populated after creating a chat)
 
